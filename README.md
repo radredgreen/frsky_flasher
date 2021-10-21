@@ -8,6 +8,8 @@ frsky_flasher.py is a flash firmware programmer for programming firmware updates
 * If you don't have access to an opentx transmitter (you're using an older PPM transmitter)
 * If you prefer an opensource implementation of the firmware flasher
 
+For now, this tool only works with python2, not python3.
+
 This tool was created, from scratch in python, by reviewing the opentx software, specifically frsky_firmware_update.cpp
 
 # Alternatives
@@ -17,14 +19,18 @@ This tool was created, from scratch in python, by reviewing the opentx software,
 # Cable
 To use this, you'll need to build or buy a cable
 * Frsky sells a stk cable which I believe presents itself to linux as a serial port which can be used with this software
-* You can build a converter as described here: https://hackaday.io/project/27894-frsky-smartport-inverter.  This was the path I choose but the selection resistors and supply voltages seemed finicky.  I ended with a 22k pull up resistor to 5 volts.
-* You can build a converter as described here: https://www.rcgroups.com/forums/showthread.php?2204986-Update-FrSky-XJT-module-with-FTDI-cable-and-diode.  I would recommend this method, especially if you already have an FTDI serial adaptor.
+* You can build a converter as described here: https://hackaday.io/project/27894-frsky-smartport-inverter.  This was the path I choose since the R9MM has an inverted s.port the selection resistors and supply voltages seemed finicky.  I ended with a 22k pull up resistor to 5 volts.
+* You can build a converter as described here: https://www.rcgroups.com/forums/showthread.php?2204986-Update-FrSky-XJT-module-with-FTDI-cable-and-diode.  I would recommend this method if you have a device that uses a non-inverted sport.
 
 # Usage
-Install PyCRC: pip install PyCRC
+Install PyCRC: pip install pythoncrc
+
 Install PySerial: pip install PySerial
+
 Download frsky firmware (.frk file) for your device
+
 Connect programming cable
+
 Execute: ./frsky_flasher.py firmware.frk /dev/ttyUSB0
 
 # Testing

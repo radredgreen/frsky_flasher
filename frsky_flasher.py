@@ -116,7 +116,7 @@ def main(firmwareFile, serialPort):
 	for i in range(append):
 		firmware = firmware + b'\x00'
 
-	with serial.Serial(serialPort, 57600, timeout=0.01,parity=serial.PARITY_NONE, rtscts=0) as ser:
+	with serial.Serial(serialPort, 57600, timeout=0.04,parity=serial.PARITY_NONE, rtscts=0) as ser:
 	
 		print "(Re)connect device to programming cable"
 		print "Sending power up REQ..."
